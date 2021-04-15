@@ -25,6 +25,10 @@ main {
 
 main > div {
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     height: 600px;
     width: 400px;
@@ -138,4 +142,66 @@ main .student.active {
 
 .form.login-student button {
     color: #d35400;
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+
+    main > div {
+        height: 150px;
+        width: 90vw;
+        grid-template-columns: auto 150px;
+        grid-template-rows: 110px;
+        transition: height 0.3s cubic-bezier(0.74, -0.01, 0.46, 1);
+    }
+
+    main:not(.closing) > div:hover:not(.active) {
+        transform: none;
+        box-shadow: none;
+    }
+
+    main > div h2 {
+        justify-self: start;
+    }
+
+    main > div img {
+        align-self: start;
+        height: 150px;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    main.open > div.active {
+        justify-self: start;
+        width: 90vw;
+        grid-template-columns: auto 150px;
+    }
+
+    main.open .form {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    main .teacher {
+        grid-row: 1;
+    }
+
+    main.open .teacher.active {
+        height: 450px;
+        grid-template-rows: 110px 300px;
+    }
+
+    main .student {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    main.open .student.active {
+        transform: none;
+        height: 600px;
+        grid-template-rows: 110px 450px;
+    }
 }
