@@ -28,14 +28,20 @@ const frontendModul = {
         setTimeout(() => {
             document.querySelector("div.student").appendChild(temp.content.cloneNode(true)) 
             document.querySelector("svg.close").addEventListener("click", frontendModul.closeLogin)
-        }, 300) 
+        }, 300)
     },
     closeLogin() {
         this.closest(".form").remove()
+        let main = document.querySelector("main")
         let active = document.querySelector("div.active")
+        let sibling = (active.nextElementSibling) ? active.nextElementSibling : active.previousElementSibling
+        sibling.classList.add("showing")
+        main.classList.add("closing")
         active.classList.remove("active")
-        document.querySelector("main").classList.remove("open")
-        setTimeout(() => { active.addEventListener("click", frontendModul.openLogin); }, 300)
+        main.classList.remove("open")
+        setTimeout(() => {active.addEventListener("click", frontendModul.openLogin)}, 100)
+        setTimeout(() => {sibling.classList.remove("showing")}, 300)
+        setTimeout(() => {main.classList.remove("closing")}, 800)
     }
 }
 
