@@ -71,6 +71,7 @@
         if (mysqli_num_rows($result) == 1) {
             $game = mysqli_fetch_assoc($result);
             if ($game['code'] === $code) {
+                $_SESSION['title'] = "Alex spielt Spiele";
                 $_SESSION['name'] = $input['name'];
                 $_SESSION['code'] = $code;
                 $_SESSION['role'] = "student";

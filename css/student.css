@@ -1,0 +1,11 @@
+body {
+    background-color: var(--color-accent-2);
+    color: white;
+    height: var(--app-height);
+}
+
+header {
+    display: grid;
+    place-content: center;
+}
+

@@ -69,12 +69,12 @@ main > div.showing {
 }
 
 main .teacher {
-    background-color: #2c3e50;
+    background-color: var(--color-accent-1);
     grid-column: 1;
 }
 
 main .student {
-    background-color: #d35400;
+    background-color: var(--color-accent-2);
     grid-column: 2;
 }
 
